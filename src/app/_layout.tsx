@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar'
+import { Stack } from 'expo-router'
 import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-export default function App() {
+// default initial component
+const App = () => {
 	return (
-		<View style={styles.container}>
-			<Text>Open up App.tsx to start working on your app!</Text>
+		// The area not overlapped by items such as navigation bar, notches.
+		<SafeAreaProvider>
+ 			<RootNavigation />
 			<StatusBar style="auto" />
-		</View>
+		</SafeAreaProvider>
 	)
+  
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-})
+// extract the navigation logic to a separate component
+const RootNavigation = () => {
+	<Stack>
+		<Stack.Screen name='(tabs)' options={{headerShown: false}}/>
+	</Stack>
+}
+
+export default App;
