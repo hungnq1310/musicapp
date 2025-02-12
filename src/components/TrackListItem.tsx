@@ -27,26 +27,26 @@ export const TrackListItem = ({track}: TrackListItemProps) => {
                         opacity: isActiveTrack ? 0.6 : 1,
                     }}
                 />
-                {/* Track Title + Artist */}
-                <View style={{ width: '100%' }}>
-                    <Text 
-                        numberOfLines={1}
-                        style={{
-                            ...styles.trackTitleText,
-                            color: isActiveTrack ? colors.primary : colors.text,
-                        }}    
-                    >{track.title}
-                    </Text>
-
-                    {track.artist && (
-                        <Text numberOfLines={1} style={styles.trackArtistText}>
-                            {track.artist}
-                        </Text>
-                    )}
-                    <Text>{track.artist}</Text>
-                
-                </View>
             </View> 
+
+            {/* Track Title + Artist */}
+
+            <View style={{ width: '100%' }}>
+                <Text 
+                    numberOfLines={1}
+                    style={{
+                        ...styles.trackTitleText,
+                        color: isActiveTrack ? colors.primary : colors.text,
+                    }}    
+                >{track.title}
+                </Text>
+
+                {track.artist && (
+                    <Text numberOfLines={1} style={styles.trackArtistText}>
+                        {track.artist}
+                    </Text>
+                )}
+            </View>
         </TouchableHighlight>
     )
 }
